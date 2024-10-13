@@ -3,8 +3,7 @@ import importlib
 import sys
 import requests
 
-# GitHub 저장소의 최신 버전 파일 URL
-REPO_URL = "https://raw.githubusercontent.com/username/repository/main/latest_version.py"
+REPO_URL = "https://raw.githubusercontent.com/UncensoredUsers/Jimini-Tool-Py/refs/heads/main/check_module.py"
 
 def check_and_install(module_name):
     try:
