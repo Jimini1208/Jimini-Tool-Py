@@ -16,7 +16,7 @@ def check_for_update():
         return None
 
 def update_program(latest_code):
-    with open("latest_version.py", "w", encoding='utf-8') as f:
+    with open("main.py", "w", encoding='utf-8') as f:
         f.write(latest_code)
     print("Update downloaded successfully.")
 
