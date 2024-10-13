@@ -4,7 +4,6 @@ from pystyle import Colors, Center
 import time
 import check_module
 
-# GitHub 저장소의 최신 버전 파일 URL
 REPO_URL = "https://raw.githubusercontent.com/username/repository/main/latest_version.py"
 
 def check_for_update():
