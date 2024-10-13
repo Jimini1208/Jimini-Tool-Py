@@ -3,7 +3,7 @@ import importlib
 import sys
 import requests
 
-REPO_URL = "https://raw.githubusercontent.com/UncensoredUsers/Jimini-Tool-Py/refs/heads/main/check_module.py"  # 수정 필요
+REPO_URL = "https://raw.githubusercontent.com/UncensoredUsers/Jimini-Tool-Py/refs/heads/main/check_module.py"
 
 def check_and_install(module_name):
     try:
@@ -22,8 +22,9 @@ def check_for_update():
         return None
 
 def update_program(latest_code):
-    with open("check_module.py", "w", encoding='utf-8') as f:
+    with open("main.py", "w") as f:
         f.write(latest_code)
+    print("Update downloaded successfully.")
 
 def main():
     modules_to_check = ['requests', 'pystyle']
