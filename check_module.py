@@ -1,16 +1,10 @@
 import os
-import importlib
-import sys
 import requests
+from pystyle import Colors, Center
+import time
+import check_module
 
-REPO_URL = "https://raw.githubusercontent.com/UncensoredUsers/Jimini-Tool-Py/refs/heads/main/check_module.py"  # 수정 필요
-
-def check_and_install(module_name):
-    try:
-        importlib.import_module(module_name)
-    except ImportError:
-        print(f"{module_name} is not installed. Installing...")
-        os.system(f"{sys.executable} -m pip install {module_name}")
+REPO_URL = "https://raw.githubusercontent.com/UncensoredUsers/Jimini-Tool-Py/refs/heads/main/main.py"
 
 def check_for_update():
     try:
@@ -22,21 +16,37 @@ def check_for_update():
         return None
 
 def update_program(latest_code):
-    with open("latest_version.py", "w", encoding='utf-8') as f:
+    with open("main.py", "w", encoding='utf-8') as f:
         f.write(latest_code)
+    print("Update downloaded successfully.")
 
 def main():
-    modules_to_check = ['requests', 'pystyle']
-
-    for module in modules_to_check:
-        check_and_install(module)
-
-    print("All Modules Checked")
+    jimini_ascii_art = """
+         ██╗██╗███╗   ███╗██╗███╗  ██╗██╗  ████████╗ █████╗  █████╗ ██╗
+         ██║██║████╗ ████║██║████╗ ██║██║  ╚══██╔══╝██╔══██╗██╔══██╗██║
+         ██║██║██╔████╔██║██║██╔██╗██║██║     ██║   ██║  ██║██║  ██║██║
+    ██╗  ██║██║██║╚██╔╝██║██║██║╚████║██║     ██║   ██║  ██║██║  ██║██║
+    ╚█████╔╝██║██║ ╚═╝ ██║██║██║ ╚███║██║     ██║   ╚█████╔╝╚█████╔╝███████╗
+     ╚════╝ ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚══╝╚═╝     ╚═╝    ╚════╝  ╚════╝ ╚══════╝
+    """
     
+    time.sleep(1)
+    print("Checking Modules...")
+    check_module.main()
+    time.sleep(1)
+
+    print("Checking for updates...")
     latest_code = check_for_update()
 
     if latest_code:
         update_program(latest_code)
+
+    print("Starting Program...")
+    time.sleep(1)
+    os.system('cls')
+    print(Colors.light_blue, Center.XCenter(jimini_ascii_art))
+
+    os.system('pause')
 
 if __name__ == "__main__":
     main()
