@@ -4,7 +4,7 @@ from pystyle import Colors, Center
 import time
 import check_module
 
-REPO_URL = "https://raw.githubusercontent.com/username/repository/main/latest_version.py"
+REPO_URL = "https://raw.githubusercontent.com/UncensoredUsers/Jimini-Tool-Py/refs/heads/main/main.py"
 
 def check_for_update():
     try:
