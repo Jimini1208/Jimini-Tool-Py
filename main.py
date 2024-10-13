@@ -15,6 +15,7 @@ def check_and_install(module_name):
         os.system(f"{sys.executable} -m pip install {module_name}")
 
 def check_for_update(url):
+    """Check for updates from the given URL."""
     try:
         response = requests.get(url)
         response.raise_for_status()
@@ -28,6 +29,18 @@ def update_program(latest_code, filename):
         f.write(latest_code)
     print("Update downloaded successfully.")
 
+def display_ascii_art():
+    jimini_ascii_art = """
+         ██╗██╗███╗   ███╗██╗███╗  ██╗██╗  ████████╗ █████╗  █████╗ ██╗
+         ██║██║████╗ ████║██║████╗ ██║██║  ╚══██╔══╝██╔══██╗██╔══██╗██║
+         ██║██║██╔████╔██║██║██╔██╗██║██║     ██║   ██║  ██║██║  ██║██║
+    ██╗  ██║██║██║╚██╔╝██║██║██║╚████║██║     ██║   ██║  ██║██║  ██║██║
+    ╚█████╔╝██║██║ ╚═╝ ██║██║██║ ╚███║██║     ██║   ╚█████╔╝╚█████╔╝███████╗
+     ╚════╝ ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚══╝╚═╝     ╚═╝    ╚════╝  ╚════╝ ╚══════╝
+    """
+    os.system('cls')
+    print(Colors.light_blue, Center.XCenter(jimini_ascii_art))
+
 def main():
     modules_to_check = ['requests', 'pystyle']
 
@@ -37,26 +50,15 @@ def main():
     print("All Modules Checked")
     time.sleep(1)
 
+    # Check for updates
     print("Checking for updates...")
     latest_code = check_for_update(REPO_URL_MAIN)
 
     if latest_code:
         update_program(latest_code, "main.py")
 
-    # Display ASCII art
-    jimini_ascii_art = """
-         ██╗██╗███╗   ███╗██╗███╗  ██╗██╗  ████████╗ █████╗  █████╗ ██╗
-         ██║██║████╗ ████║██║████╗ ██║██║  ╚══██╔══╝██╔══██╗██╔══██╗██║
-         ██║██║██╔████╔██║██║██╔██╗██║██║     ██║   ██║  ██║██║  ██║██║
-    ██╗  ██║██║██║╚██╔╝██║██║██║╚████║██║     ██║   ██║  ██║██║  ██║██║
-    ╚█████╔╝██║██║ ╚═╝ ██║██║██║ ╚███║██║     ██║   ╚█████╔╝╚█████╔╝███████╗
-     ╚════╝ ╚═╝╚═╝     ╚═╝╚═╝╚═╝  ╚══╝╚═╝     ╚═╝    ╚════╝  ╚════╝ ╚══════╝
-    """
-    
     time.sleep(1)
-    os.system('cls')
-    print(Colors.light_blue, Center.XCenter(jimini_ascii_art))
-
+    display_ascii_art()
     os.system('pause')
 
 if __name__ == "__main__":
